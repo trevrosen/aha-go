@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Go is Awesome</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -59,6 +59,7 @@
             <li>FOSS project sponsored by Google</li>
             <li>Started by heavyweights (gods?) like <a href="http://en.wikipedia.org/wiki/Rob_Pike">Rob Pike</a> and <a href="http://en.wikipedia.org/wiki/Ken_Thompson#">Ken Thompson</a></li>
             <li>A language that looks like a blend of C and Python and makes concurrency stupid simple</li>
+            <li>Compiled, but in a good way ;-) </li>
           </ul>
         </section>
 
@@ -75,6 +76,87 @@
           </pre>
         </section>
 
+        <section>
+          <section>
+            <h2>Why is Go cool?</h2>
+          </section>
+
+          <section>
+            <h2>Effortless Concurrency</h2>
+            <blockquote>
+              "Don't communicate by sharing memory. Share memory by communicating."
+            </blockquote>
+            <ul>
+              <li>'go' keyword creates a 'goroutine' to run the supplied function</li>
+              <li>"channel" is a native compound data type - like a buffered queue with blocking capabilities</li>
+              <li>goroutines are multiplexed on OS threads by the runtime - you don't have to care how</li>
+              <li>no locks or mutexes to manage</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Strong Typing AND Duck Typing</h2>
+            <ul>
+              <li>If a type implements an interface, it's regarded as being that kind of thing</li>
+              <li>Go isn't object-oriented -- think types and interfaces</li>
+              <li>A notion of OOP is somewhat possible</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Named arguments, named return values</h2>
+            <p>Return variables you declare with a name in function signatures will be available in function body</p>
+            <pre>
+            func fooBar(numbers []float64) (processedNumbers []float64){
+              // Do some stuff to numbers
+              // fill the processedNumbers array
+              // but no need to declare it, b/c it's in the signature
+              return processedNumbers
+            }
+            </pre>
+          </section>
+
+          <section>
+            <h2>Return more than one value</h2>
+            <pre>
+            func caller(){
+              someNums := []float64{1.2, 3.14, 2.71}
+              result, err := calledFooBar(someNums)
+              if err != nil {
+                // do some error stuff
+              }
+              for _, x := range result {
+                fmt.Println("The numbers are:", x)
+              } 
+            }
+      
+            func calledFooBar(numbers []float64) (ezNum int, err error){
+              // Do some stuff to numbers
+              return ezNum, err
+            }
+            </pre>
+
+          </section>
+
+        </section>
+
+        <section>
+          <h2>Great packages in stdlib</h2>
+          <ul>
+            <li><strong>crypto: </strong>lots of standard hash functions, etc</li>
+            <li><strong>os: </strong>process and file management, etc</li>
+            <li><strong>net: </strong>low and high-level net (IPv4/6, TCP, UDP, DNS) functionality</li>
+            <li><strong>encoding: </strong>range of different encoding capabilities (JSON, binary, etc)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Easy to get started!</h2>
+          <p>Go includes a great deal of documentation, all of which you can see from the documentation server that comes with it:</p>
+          <pre>
+            godoc -http:=8080
+          </pre>
+        </section>
 
 			</div>
 
